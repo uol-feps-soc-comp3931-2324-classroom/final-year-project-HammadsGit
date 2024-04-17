@@ -12,21 +12,38 @@
             padding-top: 30px;
         }
         .container {
-            width: 60%; /* You can adjust this for desired width */
+            width: 95%; /* Adjusted for better layout */
             margin: auto;
             background-color: #fff;
             padding: 15px;
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-        .image-container img {
-            width: 50%; /* Reduced width to make the image smaller */
+        .main-and-cam-grid {
+            display: grid;
+            grid-template-columns: 2fr 3fr; /* Adjusted ratio, smaller main image */
+            gap: 20px;
+        }
+        .main-image {
+            width: 100%;
             height: auto;
             border-radius: 4px;
-            margin-bottom: 20px; /* Space between image and results */
-            display: block; /* Centers the image in its container */
-            margin-left: auto;
-            margin-right: auto;
+        }
+        .cams-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns for CAM images */
+            gap: 10px;
+            padding: 10px; /* Padding to align with the main image */
+        }
+        .cam-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .cam-title {
+            margin-bottom: 5px;
+            font-size: 14px; /* Slightly smaller font size */
+            text-align: center;
         }
         ul {
             list-style-type: none;
@@ -48,11 +65,24 @@
     <div class="container">
         <h1>Prediction Results</h1>
         <p>Results rounded to the nearest integer.</p>
-        {% if image_url %}
-        <div class="image-container">
-            <img src="{{ image_url }}" alt="Uploaded Image">
+        <div class="main-and-cam-grid">
+            {% if image_url %}
+                <div class="main-image-container">
+                    <div class="main-image-caption">Original Image</div>
+                    <img class="main-image" src="{{ image_url }}" alt="Uploaded Image">
+                </div>
+            {% endif %}
+            <div class="cams-grid">
+                {% if cam_images %}
+                    {% for condition_name, cam_image_url in cam_images %}
+                        <div>
+                            <div class="cam-title">{{ condition_name }}</div>
+                            <img class="cam-image" src="{{ cam_image_url }}" alt="CAM Image for {{ condition_name }}">
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
-        {% endif %}
         {% if predictions_with_conditions %}
             <ul>
                 {% for condition, prob in predictions_with_conditions %}

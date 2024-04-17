@@ -1,5 +1,8 @@
 archive/images/
 static/images/
+static/heatmaps/
+static/heatmap/
+sattic/cams/
 archive/Data_Entry_2017.csvarchive/BBox_List_2017.csv
 archive/FAQ_CHESTXRAY.pdf
-util.py
+main.py
