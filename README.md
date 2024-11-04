@@ -30,5 +30,7 @@ To run the application on your local machine:
 
 
 ![image](https://github.com/user-attachments/assets/3c6f5c6a-83a3-4ea8-a851-d1f31bdb214e)
+![image](https://github.com/user-attachments/assets/b3ac6c1a-3b50-4b92-85c8-fc11eea7c90b)
+
 
      
