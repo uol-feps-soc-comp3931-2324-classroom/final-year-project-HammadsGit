@@ -28,4 +28,7 @@ To run the application on your local machine:
 
 
 
+
+![image](https://github.com/user-attachments/assets/3c6f5c6a-83a3-4ea8-a851-d1f31bdb214e)
+
      
